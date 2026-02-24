@@ -14,8 +14,11 @@
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/LoginResponse.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/RegisterRequest.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/Tenant.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/TenantController.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/TenantRepository.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/TenantService.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/settings/BusinessHours.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/settings/TenantSettings.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/users/User.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/users/UserRepository.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/users/UserService.java

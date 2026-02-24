@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.trymily.api.modules.auth.LocalAuthIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.035 s <<< FAILURE! -- in com.trymily.api.modules.auth.LocalAuthIntegrationTest
-com.trymily.api.modules.auth.LocalAuthIntegrationTest.shouldFailLoginWithWrongPassword -- Time elapsed: 0.108 s <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.230 s <<< FAILURE! -- in com.trymily.api.modules.auth.LocalAuthIntegrationTest
+com.trymily.api.modules.auth.LocalAuthIntegrationTest.shouldFailLoginWithWrongPassword -- Time elapsed: 0.109 s <<< ERROR!
 jakarta.servlet.ServletException: Request processing failed: java.lang.RuntimeException: Invalid credentials
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1022)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)

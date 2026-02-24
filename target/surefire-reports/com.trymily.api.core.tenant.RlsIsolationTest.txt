@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: com.trymily.api.core.tenant.RlsIsolationTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 1.202 s <<< FAILURE! -- in com.trymily.api.core.tenant.RlsIsolationTest
-com.trymily.api.core.tenant.RlsIsolationTest.shouldOnlySeeTenantADataWhenContextIsSetToTenantA -- Time elapsed: 0.030 s <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.783 s <<< FAILURE! -- in com.trymily.api.core.tenant.RlsIsolationTest
+com.trymily.api.core.tenant.RlsIsolationTest.shouldOnlySeeTenantADataWhenContextIsSetToTenantA -- Time elapsed: 0.039 s <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: 
 could not prepare statement [Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]; SQL [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
 	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:566)
@@ -20,13 +20,13 @@ insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) value
 	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
-	at jdk.proxy2/jdk.proxy2.$Proxy138.save(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy140.save(Unknown Source)
 	at com.trymily.api.core.tenant.RlsIsolationTest.setUp(RlsIsolationTest.java:37)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement [Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]
 	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -65,7 +65,7 @@ insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) value
 	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
 	... 16 more
 Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
@@ -90,10 +90,10 @@ insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) value
 	at org.hibernate.engine.jdbc.internal.MutationStatementPreparerImpl$StatementPreparationTemplate.prepareStatement(MutationStatementPreparerImpl.java:106)
 	... 48 more
 
-com.trymily.api.core.tenant.RlsIsolationTest.shouldOnlySeeTenantBDataWhenContextIsSetToTenantB -- Time elapsed: 0.010 s <<< ERROR!
+com.trymily.api.core.tenant.RlsIsolationTest.shouldOnlySeeTenantBDataWhenContextIsSetToTenantB -- Time elapsed: 0.012 s <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: 
 could not prepare statement [Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]; SQL [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
 	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:566)
@@ -108,13 +108,13 @@ insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) value
 	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
-	at jdk.proxy2/jdk.proxy2.$Proxy138.save(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy140.save(Unknown Source)
 	at com.trymily.api.core.tenant.RlsIsolationTest.setUp(RlsIsolationTest.java:37)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement [Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]
 	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -153,7 +153,7 @@ insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) value
 	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
 	... 16 more
 Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
@@ -178,10 +178,10 @@ insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) value
 	at org.hibernate.engine.jdbc.internal.MutationStatementPreparerImpl$StatementPreparationTemplate.prepareStatement(MutationStatementPreparerImpl.java:106)
 	... 48 more
 
-com.trymily.api.core.tenant.RlsIsolationTest.shouldSeeNoDataWhenNoTenantContextIsSet -- Time elapsed: 0.009 s <<< ERROR!
+com.trymily.api.core.tenant.RlsIsolationTest.shouldSeeNoDataWhenNoTenantContextIsSet -- Time elapsed: 0.011 s <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: 
 could not prepare statement [Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]; SQL [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
 	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:566)
@@ -196,13 +196,13 @@ insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) value
 	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
-	at jdk.proxy2/jdk.proxy2.$Proxy138.save(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy140.save(Unknown Source)
 	at com.trymily.api.core.tenant.RlsIsolationTest.setUp(RlsIsolationTest.java:37)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement [Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?)]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]] [insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?)]
 	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -241,7 +241,7 @@ insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) value
 	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
 	... 16 more
 Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "tenants_aud" not found; SQL statement:
-insert into tenants_aud (revtype,created_at,name,status,updated_at,rev,id) values (?,?,?,?,?,?,?) [42102-232]
+insert into tenants_aud (revtype,address,created_at,logo_url,name,phone,settings,status,updated_at,rev,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)

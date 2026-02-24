@@ -26,4 +26,19 @@ public class TenantService {
     public Tenant create(Tenant tenant) {
         return tenantRepository.save(tenant);
     }
+
+    @Transactional
+    public Tenant update(UUID id, Tenant tenantDetails) {
+        Tenant tenant = tenantRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tenant not found"));
+
+        tenant.setName(tenantDetails.getName());
+        tenant.setAddress(tenantDetails.getAddress());
+        tenant.setPhone(tenantDetails.getPhone());
+        tenant.setLogoUrl(tenantDetails.getLogoUrl());
+        tenant.setSettings(tenantDetails.getSettings());
+        tenant.setStatus(tenantDetails.getStatus());
+
+        return tenantRepository.save(tenant);
+    }
 }
