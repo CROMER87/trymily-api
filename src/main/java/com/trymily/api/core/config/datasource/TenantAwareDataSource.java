@@ -33,6 +33,14 @@ public class TenantAwareDataSource extends DelegatingDataSource {
 
     private void setTenantContext(Connection connection) throws SQLException {
         UUID tenantId = TenantContextHolder.getTenantId();
+        String databaseProductName = connection.getMetaData().getDatabaseProductName();
+        
+        // Skip session variable setting for non-Postgres databases (e.g., H2 during tests)
+        if (!"PostgreSQL".equalsIgnoreCase(databaseProductName)) {
+            log.trace("Skipping tenant context for non-PostgreSQL database: {}", databaseProductName);
+            return;
+        }
+
         try (Statement statement = connection.createStatement()) {
             if (tenantId != null) {
                 log.debug("Setting session tenant context to {}", tenantId);

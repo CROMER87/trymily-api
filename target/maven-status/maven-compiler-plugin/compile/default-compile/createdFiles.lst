@@ -1,0 +1,15 @@
+com/trymily/api/modules/appointments/Appointment.class
+com/trymily/api/modules/appointments/AppointmentRepository.class
+com/trymily/api/modules/users/User$UserBuilder.class
+com/trymily/api/modules/tenants/TenantService.class
+com/trymily/api/modules/users/UserRepository.class
+com/trymily/api/modules/tenants/Tenant$TenantBuilder.class
+com/trymily/api/modules/tenants/TenantRepository.class
+com/trymily/api/core/tenant/TenantFilter.class
+com/trymily/api/modules/users/User.class
+com/trymily/api/modules/tenants/Tenant.class
+com/trymily/api/modules/appointments/Appointment$AppointmentBuilder.class
+com/trymily/api/TrymilyApiApplication.class
+com/trymily/api/core/config/datasource/TenantAwareDataSource.class
+com/trymily/api/core/config/datasource/DataSourceConfig.class
+com/trymily/api/core/tenant/TenantContextHolder.class
