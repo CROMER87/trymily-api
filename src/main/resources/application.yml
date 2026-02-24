@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: trymily-api
+  
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/trymily}
+    username: ${SPRING_DATASOURCE_USERNAME:admin}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${GOOGLE_ISSUER_URI:https://accounts.google.com}
+          jwk-set-uri: ${GOOGLE_JWK_SET_URI:https://www.googleapis.com/oauth2/v3/certs}
+
+logging:
+  level:
+    com.trymily: DEBUG
+    org.springframework.security: DEBUG
