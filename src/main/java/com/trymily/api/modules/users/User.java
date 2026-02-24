@@ -33,6 +33,9 @@ public class User {
     @Column(name = "picture_url")
     private String pictureUrl;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(nullable = false)
     @Builder.Default
     private String provider = "LOCAL";
