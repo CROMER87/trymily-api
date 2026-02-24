@@ -2,6 +2,7 @@ package com.trymily.api.modules.users;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,24 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    @Transactional
+    public User register(String email, String password, String fullName) {
+        if (userRepository.findByEmail(email).isPresent()) {
+            throw new RuntimeException("Email already registered");
+        }
+
+        User newUser = User.builder()
+                .email(email)
+                .password(passwordEncoder.encode(password))
+                .fullName(fullName)
+                .provider("LOCAL")
+                .role("ROLE_CUSTOMER")
+                .build();
+
+        return userRepository.save(newUser);
+    }
 
     @Transactional
     public User processSocialLogin(String email, String fullName, String pictureUrl, String provider, String providerId) {
