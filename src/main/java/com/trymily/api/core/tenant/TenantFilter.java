@@ -5,6 +5,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -21,14 +24,21 @@ public class TenantFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        String tenantHeader = request.getHeader(TENANT_HEADER);
+        // 1. Try to get tenant from Authentication context (JWT claim)
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String tenantIdFromJwt = null;
 
-        if (tenantHeader != null && !tenantHeader.isBlank()) {
-            try {
-                UUID tenantId = UUID.fromString(tenantHeader);
-                TenantContextHolder.setTenantId(tenantId);
-            } catch (IllegalArgumentException e) {
-                log.warn("Invalid tenant ID format in header {}: {}", TENANT_HEADER, tenantHeader);
+        if (authentication != null && authentication.getPrincipal() instanceof Jwt jwt) {
+            tenantIdFromJwt = jwt.getClaimAsString("tenant_id");
+        }
+
+        if (tenantIdFromJwt != null && !tenantIdFromJwt.isBlank()) {
+            setTenantContext(tenantIdFromJwt, "JWT");
+        } else {
+            // 2. Fallback to header (useful for public endpoints or initial setup)
+            String tenantHeader = request.getHeader(TENANT_HEADER);
+            if (tenantHeader != null && !tenantHeader.isBlank()) {
+                setTenantContext(tenantHeader, "Header");
             }
         }
 
@@ -36,6 +46,16 @@ public class TenantFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         } finally {
             TenantContextHolder.clear();
+        }
+    }
+
+    private void setTenantContext(String tenantIdStr, String source) {
+        try {
+            UUID tenantId = UUID.fromString(tenantIdStr);
+            log.trace("Setting tenant context to {} from {}", tenantId, source);
+            TenantContextHolder.setTenantId(tenantId);
+        } catch (IllegalArgumentException e) {
+            log.warn("Invalid tenant ID format from {}: {}", source, tenantIdStr);
         }
     }
 }

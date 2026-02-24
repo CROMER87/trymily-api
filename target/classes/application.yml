@@ -27,6 +27,12 @@ spring:
           issuer-uri: ${GOOGLE_ISSUER_URI:https://accounts.google.com}
           jwk-set-uri: ${GOOGLE_JWK_SET_URI:https://www.googleapis.com/oauth2/v3/certs}
 
+app:
+  security:
+    jwt:
+      secret: ${JWT_SECRET:super-secret-key-change-this-in-production-2026-trymily}
+      expiration-hours: ${JWT_EXPIRATION_HOURS:24}
+
 logging:
   level:
     com.trymily: DEBUG
