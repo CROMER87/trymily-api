@@ -5,6 +5,7 @@
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/security/JwtService.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/security/PasswordConfig.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/security/SecurityConfig.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/web/GlobalExceptionHandler.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/tenant/TenantContextHolder.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/tenant/TenantFilter.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/appointments/Appointment.java
@@ -13,6 +14,10 @@
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/LoginRequest.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/LoginResponse.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/RegisterRequest.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/services/Service.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/services/ServiceController.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/services/ServiceRepository.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/services/ServiceService.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/Tenant.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/TenantController.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/tenants/TenantRepository.java

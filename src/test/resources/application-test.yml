@@ -12,6 +12,9 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
         format_sql: true
         show_sql: true
+        integration:
+          envers:
+            enabled: false
 
 
   flyway:

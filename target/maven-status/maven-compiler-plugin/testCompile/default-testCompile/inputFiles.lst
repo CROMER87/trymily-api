@@ -2,6 +2,8 @@
 /home/mero/ws/trymily/trymily-api/src/test/java/com/trymily/api/modules/appointments/AppointmentRepositoryTest.java
 /home/mero/ws/trymily/trymily-api/src/test/java/com/trymily/api/modules/auth/LocalAuthIntegrationTest.java
 /home/mero/ws/trymily/trymily-api/src/test/java/com/trymily/api/modules/auth/SocialLoginIntegrationTest.java
+/home/mero/ws/trymily/trymily-api/src/test/java/com/trymily/api/modules/services/ServiceControllerTest.java
+/home/mero/ws/trymily/trymily-api/src/test/java/com/trymily/api/modules/services/ServiceRepositoryTest.java
 /home/mero/ws/trymily/trymily-api/src/test/java/com/trymily/api/modules/tenants/TenantRepositoryTest.java
 /home/mero/ws/trymily/trymily-api/src/test/java/com/trymily/api/modules/tenants/TenantServiceTest.java
 /home/mero/ws/trymily/trymily-api/src/test/java/com/trymily/api/modules/users/UserRepositoryTest.java
