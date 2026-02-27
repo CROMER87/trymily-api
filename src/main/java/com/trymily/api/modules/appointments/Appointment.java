@@ -28,8 +28,23 @@ public class Appointment {
     @JoinColumn(name = "tenant_id", nullable = false)
     private Tenant tenant;
 
+    @Column(name = "establishment_name", nullable = false)
+    private String establishmentName;
+
     @Column(name = "customer_name", nullable = false)
     private String customerName;
+
+    @Column(name = "service_id")
+    private UUID serviceId;
+
+    @Column(name = "service_name", nullable = false)
+    private String serviceName;
+
+    @Column(name = "service_price")
+    private Double servicePrice;
+
+    @Column(name = "service_duration")
+    private Integer serviceDuration;
 
     @Column(name = "start_time", nullable = false)
     private ZonedDateTime startTime;

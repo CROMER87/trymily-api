@@ -12,4 +12,5 @@ public interface AppointmentRepository extends JpaRepository<Appointment, UUID> 
     long countByStatus(String status);
     long countByStartTimeBetween(ZonedDateTime start, ZonedDateTime end);
     List<Appointment> findByStartTimeBetween(ZonedDateTime start, ZonedDateTime end);
+    List<Appointment> findByCustomerNameOrderByStartTimeDesc(String customerName);
 }

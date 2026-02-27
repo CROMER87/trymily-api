@@ -5,6 +5,7 @@
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/security/JwtService.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/security/PasswordConfig.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/security/SecurityConfig.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/seed/DummyDataSeeder.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/config/web/GlobalExceptionHandler.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/tenant/TenantContextHolder.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/core/tenant/TenantFilter.java
@@ -13,6 +14,7 @@
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/appointments/AppointmentDTO.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/appointments/AppointmentRepository.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/appointments/AppointmentService.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/appointments/BookAppointmentRequest.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/AuthController.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/LoginRequest.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/LoginResponse.java

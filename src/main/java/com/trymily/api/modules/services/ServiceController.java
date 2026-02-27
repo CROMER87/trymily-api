@@ -26,6 +26,11 @@ public class ServiceController {
                 .orElseThrow(() -> new RuntimeException("Service not found"));
     }
 
+    @GetMapping("/tenant/{tenantId}")
+    public List<Service> getByTenantId(@PathVariable UUID tenantId) {
+        return serviceService.findByTenantId(tenantId);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @PreAuthorize("hasRole('ADMIN')")

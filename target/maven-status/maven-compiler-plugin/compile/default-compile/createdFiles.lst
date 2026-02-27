@@ -1,3 +1,4 @@
+com/trymily/api/modules/appointments/BookAppointmentRequest.class
 com/trymily/api/modules/auth/RegisterRequest.class
 com/trymily/api/modules/auth/LoginRequest.class
 com/trymily/api/modules/tenants/TenantService.class
@@ -9,11 +10,13 @@ com/trymily/api/modules/users/User.class
 com/trymily/api/modules/auth/AuthController.class
 com/trymily/api/modules/tenants/Tenant.class
 com/trymily/api/core/config/security/CustomJwtAuthenticationConverter.class
+com/trymily/api/core/config/seed/DummyDataSeeder.class
 com/trymily/api/modules/appointments/Appointment$AppointmentBuilder.class
 com/trymily/api/modules/appointments/Appointment.class
 com/trymily/api/core/config/security/JwtService.class
 com/trymily/api/modules/services/Service.class
 com/trymily/api/core/config/security/SecurityConfig.class
+com/trymily/api/modules/appointments/BookAppointmentRequest$BookAppointmentRequestBuilder.class
 com/trymily/api/modules/tenants/settings/TenantSettings$TenantSettingsBuilder.class
 com/trymily/api/modules/users/UserService.class
 com/trymily/api/core/config/datasource/DataSourceConfig.class
