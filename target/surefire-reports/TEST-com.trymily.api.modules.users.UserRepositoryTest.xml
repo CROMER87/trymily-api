@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.trymily.api.modules.services.ServiceRepositoryTest" time="0.379" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.trymily.api.modules.users.UserRepositoryTest" time="0.02" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -44,7 +44,7 @@
     <property name="localRepository" value="/home/mero/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
     <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="21.0.10"/>
     <property name="user.dir" value="/home/mero/ws/trymily/trymily-api"/>
     <property name="os.arch" value="amd64"/>
@@ -61,152 +61,33 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[trymily-api] "/>
   </properties>
-  <testcase name="shouldPersistServiceWithTenantId" classname="com.trymily.api.modules.services.ServiceRepositoryTest" time="0.013">
-    <system-out><![CDATA[2026-02-25T21:07:36.535-03:00  INFO 13961 --- [trymily-api] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.trymily.api.modules.services.ServiceRepositoryTest]: ServiceRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-02-25T21:07:36.539-03:00  INFO 13961 --- [trymily-api] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.trymily.api.TrymilyApiApplication for test class com.trymily.api.modules.services.ServiceRepositoryTest
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::                (v3.4.3)
-
-2026-02-25T21:07:36.571-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.services.ServiceRepositoryTest   : Starting ServiceRepositoryTest using Java 21.0.10 with PID 13961 (started by mero in /home/mero/ws/trymily/trymily-api)
-2026-02-25T21:07:36.572-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.a.m.services.ServiceRepositoryTest   : Running with Spring Boot v3.4.3, Spring v6.2.3
-2026-02-25T21:07:36.572-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.services.ServiceRepositoryTest   : The following 1 profile is active: "test"
-2026-02-25T21:07:36.645-03:00  INFO 13961 --- [trymily-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-25T21:07:36.651-03:00  INFO 13961 --- [trymily-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 4 JPA repository interfaces.
-2026-02-25T21:07:36.694-03:00  INFO 13961 --- [trymily-api] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-02-25T21:07:36.698-03:00  INFO 13961 --- [trymily-api] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-02-25T21:07:36.699-03:00  INFO 13961 --- [trymily-api] [           main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : false
-2026-02-25T21:07:36.700-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2026-02-25T21:07:36.701-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn16: url=jdbc:h2:mem:trymily user=SA
-2026-02-25T21:07:36.701-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2026-02-25T21:07:36.701-03:00  WARN 13961 --- [trymily-api] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-02-25T21:07:36.702-03:00  INFO 13961 --- [trymily-api] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'com.trymily.api.core.config.datasource.TenantAwareDataSource@7a680b69']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-02-25T21:07:36.706-03:00  INFO 13961 --- [trymily-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-25T21:07:36.763-03:00  INFO 13961 --- [trymily-api] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+  <testcase name="shouldSaveAndFindUserByProviderId" classname="com.trymily.api.modules.users.UserRepositoryTest" time="0.009">
+    <system-out><![CDATA[2026-02-25T21:07:36.514-03:00  INFO 13961 --- [trymily-api] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.trymily.api.modules.users.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-02-25T21:07:36.521-03:00  INFO 13961 --- [trymily-api] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.trymily.api.TrymilyApiApplication for test class com.trymily.api.modules.users.UserRepositoryTest
 Hibernate: 
-    drop table if exists appointments cascade 
-Hibernate: 
-    drop table if exists services cascade 
-Hibernate: 
-    drop table if exists tenants cascade 
-Hibernate: 
-    drop table if exists users cascade 
-Hibernate: 
-    create table appointments (
-        created_at timestamp(6) with time zone,
-        end_time timestamp(6) with time zone not null,
-        start_time timestamp(6) with time zone not null,
-        updated_at timestamp(6) with time zone,
-        id uuid not null,
-        tenant_id uuid not null,
-        customer_name varchar(255) not null,
-        status varchar(255) not null,
-        primary key (id)
-    )
-Hibernate: 
-    create table services (
-        duration_minutes integer not null,
-        price numeric(12,2) not null,
-        version integer,
-        created_at timestamp(6) with time zone,
-        updated_at timestamp(6) with time zone,
-        id uuid not null,
-        tenant_id uuid not null,
-        created_by varchar(255),
-        description varchar(255),
-        last_modified_by varchar(255),
-        name varchar(255) not null,
-        status varchar(255) not null,
-        primary key (id)
-    )
-Hibernate: 
-    create table tenants (
-        created_at timestamp(6) with time zone,
-        updated_at timestamp(6) with time zone,
-        id uuid not null,
-        phone varchar(20),
-        address text,
-        logo_url text,
-        name varchar(255) not null,
-        status varchar(255) not null,
-        settings jsonb,
-        primary key (id)
-    )
-Hibernate: 
-    create table users (
-        created_at timestamp(6) with time zone,
-        updated_at timestamp(6) with time zone,
-        id uuid not null,
-        tenant_id uuid,
-        email varchar(255) not null unique,
-        full_name varchar(255),
-        password varchar(255),
-        picture_url varchar(255),
-        provider varchar(255) not null,
-        provider_id varchar(255) unique,
-        role varchar(255) not null,
-        primary key (id)
-    )
-Hibernate: 
-    alter table if exists appointments 
-       add constraint FKrx65i1v7m43ynclnw2sqn1sj 
-       foreign key (tenant_id) 
-       references tenants
-Hibernate: 
-    alter table if exists users 
-       add constraint FK21hn1a5ja1tve7ae02fnn4cld 
-       foreign key (tenant_id) 
-       references tenants
-2026-02-25T21:07:36.773-03:00  INFO 13961 --- [trymily-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-25T21:07:36.820-03:00  WARN 13961 --- [trymily-api] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-25T21:07:36.822-03:00 DEBUG 13961 --- [trymily-api] [           main] swordEncoderAuthenticationManagerBuilder : No authenticationProviders and no parentAuthenticationManager defined. Returning null.
-2026-02-25T21:07:36.857-03:00 DEBUG 13961 --- [trymily-api] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-02-25T21:07:36.898-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.services.ServiceRepositoryTest   : Started ServiceRepositoryTest in 0.357 seconds (process running for 4.02)
-2026-02-25T21:07:36.902-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.api.core.tenant.TenantContextHolder  : Clearing tenant ID
+    insert 
+    into
+        users
+        (created_at, email, full_name, password, picture_url, provider, provider_id, role, tenant_id, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 Hibernate: 
     select
-        s1_0.id,
-        s1_0.created_at,
-        s1_0.created_by,
-        s1_0.description,
-        s1_0.duration_minutes,
-        s1_0.last_modified_by,
-        s1_0.name,
-        s1_0.price,
-        s1_0.status,
-        s1_0.tenant_id,
-        s1_0.updated_at,
-        s1_0.version 
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.picture_url,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.tenant_id,
+        u1_0.updated_at 
     from
-        services s1_0
-Hibernate: 
-    select
-        t1_0.id,
-        t1_0.address,
-        t1_0.created_at,
-        t1_0.logo_url,
-        t1_0.name,
-        t1_0.phone,
-        t1_0.settings,
-        t1_0.status,
-        t1_0.updated_at 
-    from
-        tenants t1_0
-2026-02-25T21:07:36.907-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.api.core.tenant.TenantContextHolder  : Setting tenant ID: 6c1a974b-9bf9-4c36-8e04-e705550ea822
-2026-02-25T21:07:36.911-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.api.core.tenant.TenantContextHolder  : Clearing tenant ID
+        users u1_0 
+    where
+        u1_0.provider_id=?
 ]]></system-out>
   </testcase>
 </testsuite>

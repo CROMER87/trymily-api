@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.trymily.api.modules.services.ServiceRepositoryTest" time="0.379" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.trymily.api.modules.appointments.AppointmentControllerTest" time="2.923" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -44,7 +44,7 @@
     <property name="localRepository" value="/home/mero/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
     <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="21.0.10"/>
     <property name="user.dir" value="/home/mero/ws/trymily/trymily-api"/>
     <property name="os.arch" value="amd64"/>
@@ -61,9 +61,9 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[trymily-api] "/>
   </properties>
-  <testcase name="shouldPersistServiceWithTenantId" classname="com.trymily.api.modules.services.ServiceRepositoryTest" time="0.013">
-    <system-out><![CDATA[2026-02-25T21:07:36.535-03:00  INFO 13961 --- [trymily-api] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.trymily.api.modules.services.ServiceRepositoryTest]: ServiceRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-02-25T21:07:36.539-03:00  INFO 13961 --- [trymily-api] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.trymily.api.TrymilyApiApplication for test class com.trymily.api.modules.services.ServiceRepositoryTest
+  <testcase name="shouldFilterAppointmentsByDateRange" classname="com.trymily.api.modules.appointments.AppointmentControllerTest" time="0.437">
+    <system-out><![CDATA[21:07:33.335 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.trymily.api.modules.appointments.AppointmentControllerTest]: AppointmentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:07:33.435 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.trymily.api.TrymilyApiApplication for test class com.trymily.api.modules.appointments.AppointmentControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -74,28 +74,29 @@
 
  :: Spring Boot ::                (v3.4.3)
 
-2026-02-25T21:07:36.571-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.services.ServiceRepositoryTest   : Starting ServiceRepositoryTest using Java 21.0.10 with PID 13961 (started by mero in /home/mero/ws/trymily/trymily-api)
-2026-02-25T21:07:36.572-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.a.m.services.ServiceRepositoryTest   : Running with Spring Boot v3.4.3, Spring v6.2.3
-2026-02-25T21:07:36.572-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.services.ServiceRepositoryTest   : The following 1 profile is active: "test"
-2026-02-25T21:07:36.645-03:00  INFO 13961 --- [trymily-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-25T21:07:36.651-03:00  INFO 13961 --- [trymily-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 4 JPA repository interfaces.
-2026-02-25T21:07:36.694-03:00  INFO 13961 --- [trymily-api] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-02-25T21:07:36.698-03:00  INFO 13961 --- [trymily-api] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-02-25T21:07:36.699-03:00  INFO 13961 --- [trymily-api] [           main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : false
-2026-02-25T21:07:36.700-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2026-02-25T21:07:36.701-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn16: url=jdbc:h2:mem:trymily user=SA
-2026-02-25T21:07:36.701-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2026-02-25T21:07:36.701-03:00  WARN 13961 --- [trymily-api] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-02-25T21:07:36.702-03:00  INFO 13961 --- [trymily-api] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'com.trymily.api.core.config.datasource.TenantAwareDataSource@7a680b69']
+2026-02-25T21:07:33.676-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.a.AppointmentControllerTest      : Starting AppointmentControllerTest using Java 21.0.10 with PID 13961 (started by mero in /home/mero/ws/trymily/trymily-api)
+2026-02-25T21:07:33.676-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.a.m.a.AppointmentControllerTest      : Running with Spring Boot v3.4.3, Spring v6.2.3
+2026-02-25T21:07:33.677-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.a.AppointmentControllerTest      : The following 1 profile is active: "test"
+2026-02-25T21:07:34.023-03:00  INFO 13961 --- [trymily-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-25T21:07:34.065-03:00  INFO 13961 --- [trymily-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 4 JPA repository interfaces.
+2026-02-25T21:07:34.360-03:00  INFO 13961 --- [trymily-api] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-25T21:07:34.385-03:00  INFO 13961 --- [trymily-api] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-02-25T21:07:34.400-03:00  INFO 13961 --- [trymily-api] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-02-25T21:07:34.439-03:00  INFO 13961 --- [trymily-api] [           main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : false
+2026-02-25T21:07:34.449-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-25T21:07:34.523-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:trymily user=SA
+2026-02-25T21:07:34.524-03:00  INFO 13961 --- [trymily-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-25T21:07:34.535-03:00  WARN 13961 --- [trymily-api] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-25T21:07:34.544-03:00  INFO 13961 --- [trymily-api] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'com.trymily.api.core.config.datasource.TenantAwareDataSource@4a6c0f38']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-02-25T21:07:36.706-03:00  INFO 13961 --- [trymily-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-25T21:07:36.763-03:00  INFO 13961 --- [trymily-api] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-25T21:07:34.622-03:00  INFO 13961 --- [trymily-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-25T21:07:35.105-03:00  INFO 13961 --- [trymily-api] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists appointments cascade 
 Hibernate: 
@@ -170,28 +171,27 @@ Hibernate:
        add constraint FK21hn1a5ja1tve7ae02fnn4cld 
        foreign key (tenant_id) 
        references tenants
-2026-02-25T21:07:36.773-03:00  INFO 13961 --- [trymily-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-25T21:07:36.820-03:00  WARN 13961 --- [trymily-api] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-25T21:07:36.822-03:00 DEBUG 13961 --- [trymily-api] [           main] swordEncoderAuthenticationManagerBuilder : No authenticationProviders and no parentAuthenticationManager defined. Returning null.
-2026-02-25T21:07:36.857-03:00 DEBUG 13961 --- [trymily-api] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-02-25T21:07:36.898-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.services.ServiceRepositoryTest   : Started ServiceRepositoryTest in 0.357 seconds (process running for 4.02)
-2026-02-25T21:07:36.902-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.api.core.tenant.TenantContextHolder  : Clearing tenant ID
+2026-02-25T21:07:35.136-03:00  INFO 13961 --- [trymily-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-25T21:07:35.388-03:00  WARN 13961 --- [trymily-api] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-25T21:07:35.396-03:00 DEBUG 13961 --- [trymily-api] [           main] swordEncoderAuthenticationManagerBuilder : No authenticationProviders and no parentAuthenticationManager defined. Returning null.
+2026-02-25T21:07:35.556-03:00 DEBUG 13961 --- [trymily-api] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-02-25T21:07:35.708-03:00 DEBUG 13961 --- [trymily-api] [           main] c.trymily.api.core.tenant.TenantFilter   : Filter 'tenantFilter' configured for use
+2026-02-25T21:07:35.709-03:00  INFO 13961 --- [trymily-api] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-02-25T21:07:35.709-03:00  INFO 13961 --- [trymily-api] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-02-25T21:07:35.709-03:00  INFO 13961 --- [trymily-api] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-02-25T21:07:35.733-03:00  INFO 13961 --- [trymily-api] [           main] c.t.a.m.a.AppointmentControllerTest      : Started AppointmentControllerTest in 2.221 seconds (process running for 2.854)
 Hibernate: 
     select
-        s1_0.id,
-        s1_0.created_at,
-        s1_0.created_by,
-        s1_0.description,
-        s1_0.duration_minutes,
-        s1_0.last_modified_by,
-        s1_0.name,
-        s1_0.price,
-        s1_0.status,
-        s1_0.tenant_id,
-        s1_0.updated_at,
-        s1_0.version 
+        a1_0.id,
+        a1_0.created_at,
+        a1_0.customer_name,
+        a1_0.end_time,
+        a1_0.start_time,
+        a1_0.status,
+        a1_0.tenant_id,
+        a1_0.updated_at 
     from
-        services s1_0
+        appointments a1_0
 Hibernate: 
     select
         t1_0.id,
@@ -205,8 +205,53 @@ Hibernate:
         t1_0.updated_at 
     from
         tenants t1_0
-2026-02-25T21:07:36.907-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.api.core.tenant.TenantContextHolder  : Setting tenant ID: 6c1a974b-9bf9-4c36-8e04-e705550ea822
-2026-02-25T21:07:36.911-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.api.core.tenant.TenantContextHolder  : Clearing tenant ID
+Hibernate: 
+    insert 
+    into
+        tenants
+        (address, created_at, logo_url, name, phone, settings, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        appointments
+        (created_at, customer_name, end_time, start_time, status, tenant_id, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        appointments
+        (created_at, customer_name, end_time, start_time, status, tenant_id, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-02-25T21:07:36.102-03:00 DEBUG 13961 --- [trymily-api] [           main] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/appointments
+2026-02-25T21:07:36.105-03:00 DEBUG 13961 --- [trymily-api] [           main] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/appointments
+2026-02-25T21:07:36.105-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.api.core.tenant.TenantContextHolder  : Setting tenant ID: 74213df7-eb0d-45e8-9f34-68756511ed78
+2026-02-25T21:07:36.116-03:00 DEBUG 13961 --- [trymily-api] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public java.util.List com.trymily.api.modules.appointments.AppointmentController.getAppointments(java.time.ZonedDateTime,java.time.ZonedDateTime); target is of class [com.trymily.api.modules.appointments.AppointmentController]
+2026-02-25T21:07:36.126-03:00 DEBUG 13961 --- [trymily-api] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public java.util.List com.trymily.api.modules.appointments.AppointmentController.getAppointments(java.time.ZonedDateTime,java.time.ZonedDateTime); target is of class [com.trymily.api.modules.appointments.AppointmentController]
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.created_at,
+        a1_0.customer_name,
+        a1_0.end_time,
+        a1_0.start_time,
+        a1_0.status,
+        a1_0.tenant_id,
+        a1_0.updated_at 
+    from
+        appointments a1_0 
+    where
+        a1_0.start_time between ? and ?
+2026-02-25T21:07:36.156-03:00 DEBUG 13961 --- [trymily-api] [           main] c.t.api.core.tenant.TenantContextHolder  : Clearing tenant ID
 ]]></system-out>
+    <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/home/mero/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
   </testcase>
 </testsuite>
