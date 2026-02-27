@@ -49,29 +49,31 @@ class DashboardControllerTest {
                 .build());
         tenantId = tenant.getId();
 
+        ZonedDateTime startOfToday = ZonedDateTime.now().toLocalDate().atStartOfDay(ZonedDateTime.now().getZone());
+
         // Today's appointments
         appointmentRepository.save(Appointment.builder()
                 .tenant(tenant)
                 .customerName("Client 1")
-                .startTime(ZonedDateTime.now())
-                .endTime(ZonedDateTime.now().plusHours(1))
+                .startTime(startOfToday.plusHours(10)) // 10:00 AM today
+                .endTime(startOfToday.plusHours(11))
                 .status("CONFIRMED")
                 .build());
 
         appointmentRepository.save(Appointment.builder()
                 .tenant(tenant)
                 .customerName("Client 2")
-                .startTime(ZonedDateTime.now().plusHours(2))
-                .endTime(ZonedDateTime.now().plusHours(3))
+                .startTime(startOfToday.plusHours(14)) // 2:00 PM today
+                .endTime(startOfToday.plusHours(15))
                 .status("PENDING")
                 .build());
 
-        // Future appointment (not today)
+        // Future appointment (tomorrow)
         appointmentRepository.save(Appointment.builder()
                 .tenant(tenant)
                 .customerName("Client 3")
-                .startTime(ZonedDateTime.now().plusDays(1))
-                .endTime(ZonedDateTime.now().plusDays(1).plusHours(1))
+                .startTime(startOfToday.plusDays(1).plusHours(10)) // 10:00 AM tomorrow
+                .endTime(startOfToday.plusDays(1).plusHours(11))
                 .status("PENDING")
                 .build());
     }
