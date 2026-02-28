@@ -1,10 +1,14 @@
 package com.trymily.api.modules.users;
 
+import com.trymily.api.modules.tenants.Tenant;
+import com.trymily.api.modules.tenants.TenantRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.Optional;
 
@@ -14,6 +18,7 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final TenantRepository tenantRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
@@ -31,6 +36,37 @@ public class UserService {
                 .build();
 
         return userRepository.save(newUser);
+    }
+
+    @Transactional
+    public User registerBusiness(String email, String password, String fullName, String businessName, String businessType, String businessAddress, String businessNeighborhood, String businessPhone) {
+        if (userRepository.findByEmail(email).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este e-mail já está cadastrado.");
+        }
+
+        String fullAddress = businessAddress + " - Bairro: " + businessNeighborhood;
+
+        // 1. Create the new Business (Tenant)
+        Tenant newTenant = Tenant.builder()
+                .name(businessName)
+                .type(businessType)
+                .address(fullAddress)
+                .phone(businessPhone)
+                .status("ACTIVE")
+                .build();
+        tenantRepository.save(newTenant);
+
+        // 2. Create the Admin User for this Business
+        User adminUser = User.builder()
+                .email(email)
+                .password(passwordEncoder.encode(password))
+                .fullName(fullName)
+                .provider("LOCAL")
+                .role("ROLE_ADMIN") // Set explicit Admin role
+                .tenant(newTenant)  // Link to the newly created tenant
+                .build();
+
+        return userRepository.save(adminUser);
     }
 
     @Transactional

@@ -37,6 +37,29 @@ public class AuthController {
                 .build();
     }
 
+    @PostMapping("/register-business")
+    public LoginResponse registerBusiness(@Valid @RequestBody RegisterBusinessRequest request) {
+        User user = userService.registerBusiness(
+                request.getEmail(),
+                request.getPassword(),
+                request.getFullName(),
+                request.getBusinessName(),
+                request.getBusinessType(),
+                request.getBusinessAddress(),
+                request.getBusinessNeighborhood(),
+                request.getBusinessPhone()
+        );
+        String token = jwtService.generateToken(user);
+
+        return LoginResponse.builder()
+                .accessToken(token)
+                .email(user.getEmail())
+                .fullName(user.getFullName())
+                .role(user.getRole())
+                .tenantId(user.getTenant() != null ? user.getTenant().getId().toString() : null)
+                .build();
+    }
+
     @PostMapping("/login")
     public LoginResponse login(@Valid @RequestBody LoginRequest request) {
         User user = userRepository.findByEmail(request.getEmail())

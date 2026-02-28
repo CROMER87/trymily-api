@@ -18,6 +18,7 @@
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/AuthController.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/LoginRequest.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/LoginResponse.java
+/home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/RegisterBusinessRequest.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/auth/RegisterRequest.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/dashboard/DashboardController.java
 /home/mero/ws/trymily/trymily-api/src/main/java/com/trymily/api/modules/dashboard/DashboardService.java

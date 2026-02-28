@@ -29,6 +29,9 @@ public class Tenant {
     @Column(nullable = false)
     private String name;
 
+    @Column(length = 50)
+    private String type;
+
     @Column(nullable = false)
     @Builder.Default
     private String status = "ACTIVE";

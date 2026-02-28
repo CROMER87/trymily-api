@@ -1,0 +1,1 @@
+ALTER TABLE tenants ADD COLUMN type VARCHAR(50);

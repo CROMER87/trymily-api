@@ -1,6 +1,9 @@
 com/trymily/api/modules/auth/SocialLoginIntegrationTest.class
+com/trymily/api/modules/appointments/AppointmentControllerTest.class
 com/trymily/api/modules/appointments/AppointmentRepositoryTest.class
 com/trymily/api/modules/users/UserRepositoryTest.class
+com/trymily/api/modules/services/ServiceControllerTest.class
+com/trymily/api/modules/dashboard/DashboardControllerTest.class
 com/trymily/api/modules/tenants/TenantServiceTest.class
 com/trymily/api/modules/tenants/TenantRepositoryTest.class
 com/trymily/api/modules/auth/LocalAuthIntegrationTest.class
