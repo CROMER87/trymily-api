@@ -73,14 +73,27 @@ public class UserService {
     public User processSocialLogin(String email, String fullName, String pictureUrl, String provider, String providerId) {
         log.info("Processing social login for email: {} from provider: {}", email, provider);
         
-        Optional<User> existingUser = userRepository.findByProviderId(providerId);
+        Optional<User> existingUserByProvider = userRepository.findByProviderId(providerId);
         
-        if (existingUser.isPresent()) {
-            User user = existingUser.get();
+        if (existingUserByProvider.isPresent()) {
+            User user = existingUserByProvider.get();
             log.debug("Updating existing user: {}", user.getId());
             user.setFullName(fullName);
             user.setPictureUrl(pictureUrl);
             user.setEmail(email); // Keep email in sync if changed in Google
+            return userRepository.save(user);
+        }
+
+        Optional<User> existingUserByEmail = userRepository.findByEmail(email);
+        
+        if (existingUserByEmail.isPresent()) {
+            User user = existingUserByEmail.get();
+            log.info("Linking social account for existing email: {}", email);
+            user.setProviderId(providerId);
+            // Optionally update pictureUrl if we want to sync it from Google
+            if (user.getPictureUrl() == null || user.getPictureUrl().isEmpty()) {
+                user.setPictureUrl(pictureUrl);
+            }
             return userRepository.save(user);
         }
 

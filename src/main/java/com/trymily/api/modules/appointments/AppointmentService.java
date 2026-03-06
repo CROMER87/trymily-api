@@ -66,4 +66,11 @@ public class AppointmentService {
                 .map(this::toDTO)
                 .collect(Collectors.toList());
     }
+
+    public List<AppointmentDTO> findMyEstablishmentBookings(java.util.UUID tenantId) {
+        return appointmentRepository.findByTenantIdOrderByStartTimeAsc(tenantId)
+                .stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
+    }
 }

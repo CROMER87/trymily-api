@@ -47,7 +47,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/actuator/health", "/api/v1/auth/register", "/api/v1/auth/register-business", "/api/v1/auth/login", "/api/v1/auth/google").permitAll()
-                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/v1/tenants").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/v1/tenants/**").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/v1/services/tenant/**").permitAll()
                 .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )

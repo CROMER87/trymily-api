@@ -25,6 +25,12 @@ public class TenantController {
                 .orElseThrow(() -> new RuntimeException("Tenant not found"));
     }
 
+    @GetMapping("/slug/{slug}")
+    public Tenant getBySlug(@PathVariable String slug) {
+        return tenantService.findBySlug(slug)
+                .orElseThrow(() -> new RuntimeException("Tenant not found"));
+    }
+
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public Tenant create(@RequestBody Tenant tenant) {

@@ -32,6 +32,9 @@ public class Tenant {
     @Column(length = 50)
     private String type;
 
+    @Column(nullable = false, unique = true)
+    private String slug;
+
     @Column(nullable = false)
     @Builder.Default
     private String status = "ACTIVE";
@@ -45,7 +48,7 @@ public class Tenant {
     @Column(name = "logo_url", columnDefinition = "text")
     private String logoUrl;
 
-    @Type(JsonBinaryType.class)
+    @Type(io.hypersistence.utils.hibernate.type.json.JsonType.class)
     @Column(columnDefinition = "jsonb")
     private TenantSettings settings;
 
